@@ -13,16 +13,25 @@ var UserDAO = function(){
         var stmt = db.prepare(query);
         stmt.run(key);
         //try{
-            stmt.finalize();   
+            stmt.finalize(callback);   
         //} catch(e){
         //    console.log( "User_dao delete : exception recue : "+e.getMessage() );
         //}
     };
 
     this.findAll = function(callback){
+        var query = "select * from user ";
+        var stmt = db.prepare(query);
+        stmt.get();
+        stmt.finalize(callback); 
+
 
     };
     this.findByKey = function(key, callback){
+        var query = "select * from user where Email = ? ";
+        var stmt = db.prepare(query);
+        stmt.get(key);
+        stmt.finalize(callback); 
         
     };
 };
