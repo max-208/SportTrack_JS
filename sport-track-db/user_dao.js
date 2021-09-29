@@ -5,10 +5,27 @@ var UserDAO = function(){
         statement.run(values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"])
         statement.finalize();
     };
-    this.update = function(key, values, callback){...};
-    this.delete = function(key, callback){...};
-    this.findAll = function(callback){...};
-    this.findByKey = function(key, callback){...};
+    this.update = function(key, values, callback){
+        
+    };
+    this.delete = function(key, callback){
+        
+        var query = "delete from user where Email = ? ";
+        var stmt = db.prepare(query);
+        stmt.run(key);
+        //try{
+            stmt.finalize();   
+        //} catch(e){
+        //    console.log( "User_dao delete : exception recue : "+e.getMessage() );
+        //}
+    };
+
+    this.findAll = function(callback){
+
+    };
+    this.findByKey = function(key, callback){
+        
+    };
 };
 var dao = new UserDAO();
 module.exports = dao;
