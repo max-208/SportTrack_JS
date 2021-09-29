@@ -1,0 +1,11 @@
+{
+  "name": "sport-track-db",
+  "version": "1.0.0",
+  "description": "a database for SportTrack Web Application",
+  "main": "sport-track-db.js",
+  "scripts": {
+    "test": "sport-track-test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
