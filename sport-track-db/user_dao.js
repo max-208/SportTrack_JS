@@ -6,7 +6,9 @@ var UserDAO = function(){
         statement.finalize();
     };
     this.update = function(key, values, callback){
-        
+        let statement = db.prepare("update user set Email = ?, Name = ?, Surname = ?, BirthDate = ?, Gender = ?, Height = ?, Weight = ?, Password = ? where Email = ?")
+        statement.run(values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"], values["oldEmail"])
+        statement.finalize();
     };
     this.delete = function(key, callback){
         
