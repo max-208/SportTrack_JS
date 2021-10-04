@@ -29,5 +29,5 @@ var ActivityDAO = function(){
         
     };
 };
-const dao = new ActivityDAO();
-module.exports = dao;
+const Activitydao = new ActivityDAO();
+module.exports = Activitydao;
