@@ -5,19 +5,19 @@ var DataDAO = function(){
         const query = "select * from data ";
         db.all(query,[],callback);
     };
-    /*
-    this.findforUser = function(callback){
-        const query = "select * from data, user where Latitude = Email ";
-        db.all(query,[],callback);
+    
+    this.findforActivity = function(key,callback){
+        const query = "select * from data, user where TheActivity = IdActivity  ";
+        db.all(query,[key],callback);
     };
-    */
+
     this.insert = function(values, callback){
-        const querry = "insert into data ( IdData, Time, Cardio, Latitude, Longitude, Altitude, PreviousData, TheActivity, Duration ) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],values["Duration"]],callback);
+        const querry = "insert into data ( IdData, Time, Cardio, Latitude, Longitude, Altitude, PreviousData, TheActivity ) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],],callback);
     };
     this.update = function(key, values, callback){
         const querry = "update data set IdData = ?, Time = ?, Cardio = ?, Latitude = ?, Longitude = ?, Altitude = ?, PreviousData = ?, TheActivity = ? where Duration = ?";
-        db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"], values["Duration"]],callback);
+        db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"]],callback);
     };
     this.delete = function(key, callback){
         const query = "delete from data where IdData = ? ";

@@ -6,9 +6,9 @@ var ActivityDAO = function(){
         db.all(query,[],callback);
     };
 
-    this.findforUser = function(callback){
+    this.findforUser = function(key,callback){
         const query = "select * from activity, user where TheUser = Email ";
-        db.all(query,[],callback);
+        db.all(query,[key],callback);
     };
     
     this.insert = function(values, callback){
