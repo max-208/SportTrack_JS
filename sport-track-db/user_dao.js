@@ -16,11 +16,11 @@ var UserDAO = function(){
     };
     this.delete = function(key, callback){
         const query = "delete from user where Email = ? ";
-        db.all(query,[key],callback);
+        db.all(query,key,callback);
     };
     this.findByKey = function(key, callback){
         const query = "select * from user where Email = ? ";
-        db.all(query,[key],callback); 
+        db.all(query,key,callback); 
         
     };
 };

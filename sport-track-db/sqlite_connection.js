@@ -1,4 +1,5 @@
+const sqlite3 = require('sqlite3').verbose();
 function initializeConnection(filename){
-    let database = new sqlite3.Database(filename);
-    module.exports = database;
+    return new sqlite3.Database(filename);
 }
+module.exports = initializeConnection("sport-track-db/sport_track.db");
