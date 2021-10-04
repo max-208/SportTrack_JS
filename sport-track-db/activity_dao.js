@@ -16,7 +16,7 @@ var ActivityDAO = function(){
         db.all(querry,[values["IdActivity"], values["Date"], values["Description"], values["TheUser"], values["MaxCardio"], values["MinCardio"], values["AverageCardio"], values["BegginingTime"],values["Duration"]],callback);
     };
     this.update = function(key, values, callback){
-        const querry = "update activity set IdActivity = ?, Date = ?, Description = ?, TheUser = ?, MaxCardio = ?, MinCardio = ?, AverageCardio = ?, BegginingTime = ? where Duration = ?";
+        const querry = "update activity set IdActivity = ?, Date = ?, Description = ?, TheUser = ?, MaxCardio = ?, MinCardio = ?, AverageCardio = ?, BegginingTime = ?,  Duration = ?";
         db.all(querry,[values["IdActivity"], values["Date"], values["Description"], values["TheUser"], values["MaxCardio"], values["MinCardio"], values["AverageCardio"], values["BegginingTime"], values["Duration"]],callback);
     };
     this.delete = function(key, callback){
