@@ -12,7 +12,7 @@ var UserDAO = function(){
     };
     this.update = function(key, values, callback){
         const querry = "update user set Email = ?, Name = ?, Surname = ?, BirthDate = ?, Gender = ?, Height = ?, Weight = ?, Password = ? where Email = ?";
-        db.all(querry,[values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"], values["oldEmail"]],callback);
+        db.all(querry,[values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"], key],callback);
     };
     this.delete = function(key, callback){
         const query = "delete from user where Email = ? ";
