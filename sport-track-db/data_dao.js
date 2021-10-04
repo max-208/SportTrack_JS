@@ -16,7 +16,7 @@ var DataDAO = function(){
         db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],],callback);
     };
     this.update = function(key, values, callback){
-        const querry = "update data set IdData = ?, Time = ?, Cardio = ?, Latitude = ?, Longitude = ?, Altitude = ?, PreviousData = ?, TheActivity = ?, TheActivity = ? where IdData = ?";
+        const querry = "update data set IdData = ?, Time = ?, Cardio = ?, Latitude = ?, Longitude = ?, Altitude = ?, PreviousData = ?, TheActivity = ? where IdData = ?";
         db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],values["OldData"]],callback);
     };
     this.delete = function(key, callback){
