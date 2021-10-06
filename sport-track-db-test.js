@@ -1,6 +1,6 @@
 var user_dao = require('./sport-track-db').user_dao;
 var activity_dao = require('./sport-track-db').activity_dao;
-var db = require('./sport-track-db').db_connection;
+var data_dao = require('./sport-track-db').data_dao;
 async function testFunc(){
     let test = 
     {"Email" : "test@mail.com"
@@ -60,6 +60,36 @@ async function testFunc(){
     await activity_dao.findByKey("1").then((value)=>console.log(value));
     await activity_dao.delete("1").then((value)=>console.log(value));
     await activity_dao.findAll().then((value)=>console.log(value));
+
+    let testData =
+    {"IdData" : "1"
+    ,"Time" : "00:00:00"
+    ,"Cardio" : "100"
+    ,"Latitude" : "0"
+    ,"Longitude" : "0"
+    ,"Altitude" : "0"
+    ,"PreviousData" : "1"
+    ,"TheActivity" : "1"
+    }
+    let testDataUpdate =
+    {"IdData" : "1"
+    ,"Time" : "00:00:00"
+    ,"Cardio" : "200"
+    ,"Latitude" : "0"
+    ,"Longitude" : "0"
+    ,"Altitude" : "0"
+    ,"PreviousData" : "1"
+    ,"TheActivity" : "1"
+    }
+    await data_dao.insert(testData).then((value)=>console.log(value));
+    await data_dao.findAll().then((value)=>console.log(value));
+    await data_dao.findByKey("1").then((value)=>console.log(value));
+    await data_dao.update("1",testDataUpdate).then((value)=>console.log(value));
+    await data_dao.findByKey("1").then((value)=>console.log(value));
+    await data_dao.delete("1").then((value)=>console.log(value));
+    await data_dao.findAll().then((value)=>console.log(value));
 }//
 
 testFunc();
+
+
