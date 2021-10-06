@@ -21,35 +21,45 @@ async function testFunc(){
     ,"Height" : "1"
     ,"Weight" : "1"
     ,"Password" : "1234CaRRottes€"
-    ,"OldEmail" : "test@mail.com"
     }
     
     await user_dao.insert(test).then((value)=>console.log(value));
     await user_dao.findAll().then((value)=>console.log(value));
     await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
+    await user_dao.update("test@mail.com",testUpdate).then((value)=>console.log(value));
     await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
     await user_dao.delete("test@mail.com").then((value)=>console.log(value));
     await user_dao.findAll().then((value)=>console.log(value));
 
-    //let testAcitivty =
-    //{"IdActivity" : "1"
-    //,"Date" : "01/01/2000"
-    //,"Description" : "test1"
-    //,"TheUser" : "test@mail.com"
-    //,"MaxCardio" : "100"
-    //,"MinCardio" : "100"
-    //,"AverageCardio" : "100"
-    //,"BegginingTime" : "00:00:00"
-    //,"Duration" : "00:00:00"
-    //}
-    //await activity_dao.insert(testAcitivty);
-    //await activity_dao.findAll();
-    //await activity_dao.findByKey("1");
-    //await activity_dao.update("1",testAcitivty);
-    //await activity_dao.findByKey("1");
-    //await activity_dao.delete("1");
-    //await activity_dao.findAll();
+    let testAcitivty =
+    {"IdActivity" : "1"
+    ,"Date" : "01/01/2000"
+    ,"Description" : "test1"
+    ,"TheUser" : "test@mail.com"
+    ,"MaxCardio" : "100"
+    ,"MinCardio" : "100"
+    ,"AverageCardio" : "100"
+    ,"BegginingTime" : "00:00:00"
+    ,"Duration" : "00:00:00"
+    }
+    let testAcitivtyUpdate =
+    {"IdActivity" : "1"
+    ,"Date" : "01/01/2000"
+    ,"Description" : "test2"
+    ,"TheUser" : "test@mail.com"
+    ,"MaxCardio" : "100"
+    ,"MinCardio" : "100"
+    ,"AverageCardio" : "100"
+    ,"BegginingTime" : "00:00:00"
+    ,"Duration" : "00:00:00"
+    }
+    await activity_dao.insert(testAcitivty).then((value)=>console.log(value));
+    await activity_dao.findAll().then((value)=>console.log(value));
+    await activity_dao.findByKey("1").then((value)=>console.log(value));
+    await activity_dao.update("1",testAcitivtyUpdate).then((value)=>console.log(value));
+    await activity_dao.findByKey("1").then((value)=>console.log(value));
+    await activity_dao.delete("1").then((value)=>console.log(value));
+    await activity_dao.findAll().then((value)=>console.log(value));
 }//
 
 testFunc();
