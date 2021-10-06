@@ -2,30 +2,61 @@ const db = require('./sqlite_connection');
 var DataDAO = function(){
 
     this.findAll = function(callback){
-        const query = "select * from data ";
-        db.all(query,[],callback);
+        return new Promise(async function(resolve,reject){
+            const query = "select * from data ";
+            db.all(query,[],(err,rows)=>{
+                if(err)reject(err)
+                resolve(rows)
+            });
+        });
     };
     
-    this.findforActivity = function(key,callback){
-        const query = "select * from data, user where TheActivity = IdActivity  ";
-        db.all(query,key,callback);
+    this.findforActivity = function(key){
+        return new Promise(async function(resolve,reject){
+        const query = "select * from data, user where TheActivity = ?  ";
+        db.all(query,key,(err,rows)=>{
+            if(err)reject(err)
+            resolve(rows)
+            });
+        });
     };
 
     this.insert = function(values, callback){
+        return new Promise(async function(resolve,reject){
         const querry = "insert into data ( IdData, Time, Cardio, Latitude, Longitude, Altitude, PreviousData, TheActivity ) values (?, ?, ?, ?, ?, ?, ?, ?)";
-        db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],],callback);
+        db.run(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],],(err,rows)=>{
+            if(err)reject(err)
+            resolve(rows)
+            });
+        });
+        
     };
     this.update = function(key, values, callback){
+        return new Promise(async function(resolve,reject){
         const querry = "update data set IdData = ?, Time = ?, Cardio = ?, Latitude = ?, Longitude = ?, Altitude = ?, PreviousData = ?, TheActivity = ? where IdData = ?";
-        db.all(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],values["OldData"]],callback);
+        db.run(querry,[values["IdData"], values["Time"], values["Cardio"], values["Latitude"], values["Longitude"], values["Altitude"], values["PreviousData"], values["TheActivity"],values["OldData"]],(err,rows)=>{
+            if(err)reject(err)
+            resolve(rows)
+            });
+        });
     };
     this.delete = function(key, callback){
+        return new Promise(async function(resolve,reject){
         const query = "delete from data where IdData = ? ";
-        db.all(query,key,callback);
+        db.run(query,key,(err,rows)=>{
+            if(err)reject(err)
+            resolve(rows)
+            });
+        });
     };
-    this.findByKey = function(key, callback){
+    this.findByKey = function(key){
+        return new Promise(async function(resolve,reject){
         const query = "select * from data where IdData = ? ";
-        db.all(query,key,callback); 
+        db.all(query,key,(err,rows)=>{
+            if(err)reject(err)
+            resolve(rows)
+            });
+        });
         
     };
 };
