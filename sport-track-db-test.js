@@ -12,46 +12,25 @@ async function testFunc(){
     ,"Weight" : "1"
     ,"Password" : "1234CaRRottes€"
     }
+    let testUpdate = 
+    {"Email" : "test@mail.com"
+    ,"Name" : "test2"
+    ,"Surname" : "test2"
+    ,"BirthDate" : "01/01/2000"
+    ,"Gender" : "Autres"
+    ,"Height" : "1"
+    ,"Weight" : "1"
+    ,"Password" : "1234CaRRottes€"
+    ,"OldEmail" : "test@mail.com"
+    }
     
     await user_dao.insert(test).then((value)=>console.log(value));
     await user_dao.findAll().then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
+    await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
+    await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
+    await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
     await user_dao.delete("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.findAll().then((value)=>console.log(value));
-    
-    await user_dao.insert(test).then((value)=>console.log(value));
     await user_dao.findAll().then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    await user_dao.delete("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.findAll().then((value)=>console.log(value));
-    
-    await user_dao.insert(test).then((value)=>console.log(value));
-    await user_dao.findAll().then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    await user_dao.delete("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.findAll().then((value)=>console.log(value));
-    
-    await user_dao.insert(test).then((value)=>console.log(value));
-    await user_dao.findAll().then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    await user_dao.delete("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.findAll().then((value)=>console.log(value));
-    
-    await user_dao.insert(test).then((value)=>console.log(value));
-    await user_dao.findAll().then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.update("test@mail.com",test).then((value)=>console.log(value));
-    //await user_dao.findByKey("test@mail.com").then((value)=>console.log(value));
-    await user_dao.delete("test@mail.com").then((value)=>console.log(value));
-    //await user_dao.findAll().then((value)=>console.log(value));
 
     //let testAcitivty =
     //{"IdActivity" : "1"
