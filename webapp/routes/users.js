@@ -4,27 +4,22 @@ var user_dao = require('sport-track-db').user_dao;
 
 /* GET users listing. */
 
-
 router.get('/', function(req, res, next) {
-  user_dao.findAll()
-  .then((rows,err) => {
-    if(err != null){
-      console.log("ERROR= " +err);
-    }else {
-      res.render('users', {data:rows});
-    }
-  })
+  res.render("users")
 });
-  
-  router.get("/insert", function(req, res, next) {
-    user_dao.insert(user)
+
+router.post('/', function(req, res, next) {
+  console.log(req.body);
+  user_dao.insert(req.body)
     .then((rows,err) => {
       if(err != null){
-        console.log("ERROR= " +err);
+        console.log("err");
+        //console.log("ERROR= " +err);
       }else {
         res.render('users', {data:rows});
       }
     })
-  });
+});
+
 module.exports = router;
   

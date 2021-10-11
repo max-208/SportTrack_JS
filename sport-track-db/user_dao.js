@@ -20,7 +20,7 @@ var UserDAO = function(){
             });
         });
     };
-    this.update = function(key, values, callback){
+    this.update = function(key, values){
         return new Promise(async function(resolve,reject){
             const querry = "update user set Email = ?, Name = ?, Surname = ?, BirthDate = ?, Gender = ?, Height = ?, Weight = ?, Password = ? where Email = ?";
             db.all(querry,[values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"], key],(err,rows)=>{
@@ -29,7 +29,7 @@ var UserDAO = function(){
             });
         });
     };
-    this.delete = async function(key, callback){
+    this.delete = async function(key){
         return new Promise(async function(resolve,reject){
             const query = "delete from user where Email = ? ";
             db.run(query,key,(err,rows)=>{
@@ -38,7 +38,7 @@ var UserDAO = function(){
             });
         });
     };
-    this.findByKey = function(key, callback){
+    this.findByKey = function(key){
         return new Promise(async function(resolve,reject){
             const query = "select * from user where Email = ? ";
             db.all(query,key,(err,rows)=>{
