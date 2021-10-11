@@ -14,9 +14,9 @@ router.get('/', function(req, res, next) {
       console.log("ERROR= " +err);
     }else {
       res.render('users', {data:rows});
-    }
-
+    });
 });
+  /*
     let user = 
     {"Email" : "BD@mail.com"
     ,"Name" : "Birth"
@@ -27,18 +27,15 @@ router.get('/', function(req, res, next) {
     ,"Weight" : "58"
     ,"Password" : "1234CaRRottes€"
     }
-    user_dao.insert(user,function(err, rows) {
+    */
+
+    router.insert('/', function(req, res, next) {
+      user_dao.insert(user,function(err, rows) {
         if(err != null){
           console.log("ERROR= " +err);
         }else {
           res.render('users', {data:rows});
         }
+      });
     });
-
-
-  
-});
-module.exports = router;
-
-
-module.exports = router;
+  module.exports = router;
