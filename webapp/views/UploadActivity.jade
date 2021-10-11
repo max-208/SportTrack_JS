@@ -1,0 +1,17 @@
+html
+  head
+  body
+    h2 Importer une activite;
+                   
+    p
+    
+    form(enctype='multipart/form-data', action='/activity', method='POST')
+      label(for='userfile') Choisir un fichier a ajouter (format Json): 
+      |                             
+      input#userfile(type='file', name='userfile', accept='.json')
+      |                             
+      br
+      |                             
+      input(type='submit', value='Envoyer')
+    |                     
+    p
