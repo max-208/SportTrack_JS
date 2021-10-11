@@ -9,15 +9,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.query);
-  user_dao.insert(req.query)
+  console.log(req.body);
+  user_dao.insert(req.body)
     .then((rows,err) => {
       if(err != null){
-        console.log("ERROR= " +err);
+        console.log("err");
+        //console.log("ERROR= " +err);
       }else {
         res.render('users', {data:rows});
       }
     })
 });
+
 module.exports = router;
   
