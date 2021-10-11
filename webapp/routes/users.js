@@ -13,10 +13,11 @@ router.post('/', function(req, res, next) {
   user_dao.insert(req.body)
     .then((rows,err) => {
       if(err != null){
+        res.render('users');
         console.log("err");
         //console.log("ERROR= " +err);
       }else {
-        res.render('users', {data:rows});
+        res.render('index');
       }
     })
 });
