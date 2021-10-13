@@ -59,6 +59,16 @@ var DataDAO = function(){
         });
         
     };
+    this.findMax = function(){
+        return new Promise(async function(resolve,reject){
+        const query = "select max(IdData) as max from data";
+        db.get(query,[],(err,rows)=>{
+            if(err)reject(err)
+            resolve(rows)
+            });
+        });
+        
+    };
 };
 const dataDAO = new DataDAO();
 module.exports = dataDAO;
