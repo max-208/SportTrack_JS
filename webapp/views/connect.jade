@@ -2,24 +2,24 @@ html
   head
   body
      h2
-       em Connection
+       Connection
      |                     
      p
        
-     form(action='index.php?page=user_connect', method='POST')
-       label(for='FMail') Adresse Email
+     form(action='/connect', method='POST')
+       label(for='EMail') Adresse Email
        br
        |   
        |                             
-       input#FMail(type='email', name='FMail', pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', placeholder='Mail', required='')
+       input#EMail(type='email', name='EMail', pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', placeholder='Mail', required='')
        br
        |                             
        br
        |                             
-       label(for='FPassword') Mot de passe
+       label(for='Password') Mot de passe
        br
        |                             
-       input#FPassword(type='password', name='FPassword', pattern='^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$', placeholder='Password', required='')
+       input#Password(type='password', name='Password', pattern='^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$', placeholder='Password', required='')
        br
        |                             
        br
