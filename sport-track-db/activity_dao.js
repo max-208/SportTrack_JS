@@ -64,6 +64,17 @@ var ActivityDAO = function(){
         });
         
     };
+
+    this.findMax = function(){
+        return new Promise(async function(resolve,reject){
+            const query = "select max(IdActivity) as max from activity";
+            db.get(query,[],(err,rows)=>{ 
+                if(err)reject(err)
+                resolve(rows)
+            });
+        });
+        
+    };
 };
 const Activitydao = new ActivityDAO();
 module.exports = Activitydao;
