@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//var session = require('express-session');
 const fileUpload = require('express-fileupload');
 
 var indexRouter = require('./routes/index');
@@ -11,6 +12,7 @@ var uploadRouter = require('./routes/upload');
 
 
 var connectRouter = require('./routes/connect');
+//var activitiesRouter = require('./routes/activities')
 
 
 
@@ -28,6 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload({createParentPath: true}));
+
+//app.use(session({secret: "Test"}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
