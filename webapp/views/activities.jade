@@ -1,0 +1,24 @@
+html
+  h1 Liste activité
+  form(action='/activities' method='POST')
+        table.tab-table.tab-bordered.tab-hoverable(cellpadding='8')
+         tbody
+           h2= name
+        
+           th
+             b Description
+           th
+             b Date
+           th
+             b Heure de début
+           th
+             b Durée
+           th
+             b Distance parcourue
+           th
+             b Frequence minimum
+           th
+             b Frequence maximum
+           th
+             b Frequence moyenne
+               *

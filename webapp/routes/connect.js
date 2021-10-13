@@ -9,14 +9,16 @@ router.get('/', function(req, res, next) {
     res.render("connect")
   });
 
-router.get("/connect", function(req, res, next) {
-    user_dao.findByKey(key)
+router.post("/connect", function(req, res, next) {
+  console.log("hi")  
+  user_dao.findByKey(key)
     .then((rows,err) => {
       if(err != null){
         console.log("ERROR= " +err);
       }else {
         res.render('connect', {data:rows});
         req.session.save(key);
+        console.log(req.session.save(key))
       }
     })
   });
