@@ -3,14 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var session = require('express-session');
+var session = require('express-session');
 const fileUpload = require('express-fileupload');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var uploadRouter = require('./routes/upload');
-
-
+var activitiesRouter = require('./routes/activities');
 var connectRouter = require('./routes/connect');
 //var activitiesRouter = require('./routes/activities')
 
@@ -31,12 +30,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload({createParentPath: true}));
 
-//app.use(session({secret: "Test"}));
+app.use(session({
+  secret: "Test",
+  cookie : { secret : true }
+}));
+
+app.use(function (req, res, next) {
+  res.locals.session = req.session;
+  //console.log(req.session);
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/upload', uploadRouter);
-app.use('/connectUser', connectRouter);
+app.use('/connect', connectRouter);
+app.use('/activities', activitiesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

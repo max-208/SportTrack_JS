@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   
     const JSONData = JSON.parse(req.files.userfile.data.toString())
-    //console.log(JSONData);
+    console.log(JSONData);
     activity_dao.findMax().then(
       (max)=>{
         max = max.max + 1;
@@ -27,7 +27,7 @@ router.post('/', function(req, res, next) {
           "BegginingTime" : 0,
           "Duration" : 0
         }
-        //console.log(activity);
+        console.log(activity);
         activity_dao.insert(activity);
         data_dao.findMax().then(
           async (previousData) => {
@@ -46,7 +46,7 @@ router.post('/', function(req, res, next) {
                     "PreviousData" : previousData,
                     "TheActivity" : max
                   }
-                  //console.log(data);
+                  console.log(data);
                   data_dao.insert(data);
 
                   previousData = IdData;

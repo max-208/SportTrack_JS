@@ -38,10 +38,10 @@ var UserDAO = function(){
             });
         });
     };
-    this.findByKey = function(key){
+    this.findByKey = function(email,password){
         return new Promise(async function(resolve,reject){
-            const query = "select * from user where Email = ? ";
-            db.all(query,key,(err,rows)=>{
+            const query = "select * from user where Email = ? and Password = ?";
+            db.get(query,[email,password],(err,rows)=>{
                 if(err)reject(err);
                 resolve(rows)
             });

@@ -2,27 +2,38 @@ var express = require('express');
 var router = express.Router();
 var user_dao = require('sport-track-db').user_dao;
 
-var session = require('express-session');
-
 
 router.get('/', function(req, res, next) {
-    res.render("connect")
-  });
+  if(req.session.email === undefined){
+    res.render("connect");
+  } else {
+    res.redirect("/");
+  }
+});
 
-router.post("/connect", function(req, res, next) {
-  console.log("hi")  
-  user_dao.findByKey(key)
+router.get('/quit', function(req, res, next) {
+  req.session.destroy();
+  res.redirect("/");
+});
+
+router.post("/", function(req, res, next) {
+  if(req.session.email === undefined){
+    let email = req.body.email;
+    let password = req.body.password;
+    user_dao.findByKey(email,password)
     .then((rows,err) => {
       if(err != null){
+        res.render("connect", {error : "erreur lors de la connection veuillez réésayer"})
         console.log("ERROR= " +err);
       }else {
-        res.render('connect', {data:rows});
-        req.session.save(key);
-        console.log(req.session.save(key))
+        req.session.email = req.body.email;
+        res.redirect("/");
       }
     })
-  });
+  } else {
+    res.redirect("/");
+  }
+});
   
 
   module.exports = router;
-  

@@ -54,9 +54,9 @@ var ActivityDAO = function(){
 
     };
 
-    this.findByKey = function(key){
+    this.findByUser = function(key){
         return new Promise(async function(resolve,reject){
-            const query = "select * from activity where IdActivity = ? ";
+            const query = "select * from activity where TheUser = ? ";
             db.all(query,key,(err,rows)=>{ 
                 if(err)reject(err)
                 resolve(rows)

@@ -1,24 +1,42 @@
-html
-  h1 Liste activité
-  form(action='/activities' method='POST')
-        table.tab-table.tab-bordered.tab-hoverable(cellpadding='8')
-         tbody
-           h2= name
-        
-           th
-             b Description
-           th
-             b Date
-           th
-             b Heure de début
-           th
-             b Durée
-           th
-             b Distance parcourue
-           th
-             b Frequence minimum
-           th
-             b Frequence maximum
-           th
-             b Frequence moyenne
-               *
+extends layout
+
+block content
+  .left-image-decor
+  section#testimonials.section
+    .container
+      .row
+        .col-lg-8.offset-lg-2
+          .center-heading
+            h2
+              | Liste des 
+              em Activités
+        form(action='index.php?page=list_activities' method='POST')
+          table.tab-table.tab-bordered.tab-hoverable(cellpadding='8')
+            tbody
+              tr.center-heading.tab-color
+                th
+                  b Description
+                th
+                  b Date
+                th
+                  b Heure de début
+                th
+                  b Durée
+                th
+                  b Distance parcourue
+                th
+                  b Frequence minimum
+                th
+                  b Frequence maximum
+                th
+                  b Frequence moyenne
+              each user in users 
+                tr
+                  th=user.Description
+                  th=user.Date
+                  th=user.BegginingTime
+                  th=user.Duration
+                  th=user.Distance
+                  th=user.MinCardio
+                  th=user.MaxCardio
+                  th=user.AverageCardio

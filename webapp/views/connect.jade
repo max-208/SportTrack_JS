@@ -1,27 +1,26 @@
-html
-  head
-  body
-      h2 Connexion à votre profil             
-        p
-       
-        form(action='/connect', method='POST')
-          label(for='EMail') Adresse Email
-          br
-          |   
-          |                             
-          input#EMail(type='email', name='EMail', pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', placeholder='Mail', required='')
-          br
-          |                             
-          br
-          |                             
-          label(for='Password') Mot de passe
-          br
-          |                             
-          input#Password(type='password', name='Password', pattern='^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$', placeholder='Password', required='')
-          br
-          |                             
-          br
-          |                             
-          input(type='submit', value='Valider')
-          |                             
-          p
+extends layout
+
+block content
+  .left-image-decor
+  section#testimonials.section
+    .container
+      .row
+        .col-lg-8.offset-lg-2
+          .center-heading
+            h2
+              em Connection
+            p
+              // message erreur
+            form(action='' method='POST')
+              label(for='FMail') Adresse Email
+              br
+              input#FMail(type='email' name='email' pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+' required='true')
+              br
+              br
+              label(for='FPassword') Mot de passe
+              br
+              input#FPassword(type='password' name='password' pattern='^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$' required='true')
+              br
+              br
+              input(type='submit' value='Valider')
+            p 

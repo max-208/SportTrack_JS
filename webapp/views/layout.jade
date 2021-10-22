@@ -1,7 +1,35 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= "SportTrack"  
+    link(rel='stylesheet' type='text/css' href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet' href='/stylesheets/templatemo-lava.css')
+
   body
+    header.header-area.header-sticky
+      .container
+        .row 
+          .col-12
+            nav.main-nav
+              a.logo(href='/')
+                | SportTrack
+              ul.nav
+                - if ( session && session.email ) {
+                  li.scroll-to-section
+                    a.menu-item(href='/connect/quit') Deconnection
+                  li.scroll-to-section
+                    a.menu-item(href='/') Editer le profil
+                  li.scroll-to-section
+                    a.menu-item(href='/upload') Upload une activité
+                  li.scroll-to-section
+                    a.menu-item(href='/activities') Liste des Activités
+                - } else {
+                  li.scroll-to-section
+                    a.menu-item(href='/users') Creation de profil
+                  li.scroll-to-section
+                    a.menu-item(href='/connect') Connection
+                - }
+              a.menu-trigger
+                span Menu
+  
     block content
