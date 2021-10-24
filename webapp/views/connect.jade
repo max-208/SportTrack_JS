@@ -10,7 +10,11 @@ block content
             h2
               em Connection
             p
-              // message erreur
+              -if(error != undefined){
+                br
+                p=error
+                br
+              -}
             form(action='' method='POST')
               label(for='FMail') Adresse Email
               br

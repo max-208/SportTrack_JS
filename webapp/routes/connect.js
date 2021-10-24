@@ -22,7 +22,7 @@ router.post("/", function(req, res, next) {
     let password = req.body.password;
     user_dao.findByKey(email,password)
     .then((rows,err) => {
-      if(err != null){
+      if(err != null || rows == null){
         res.render("connect", {error : "erreur lors de la connection veuillez réésayer"})
         console.log("ERROR= " +err);
       }else {

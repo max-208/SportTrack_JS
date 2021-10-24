@@ -10,7 +10,7 @@ block content
             h2
               | Liste des 
               em Activités
-        form(action='index.php?page=list_activities' method='POST')
+        form(action='' method='POST')
           table.tab-table.tab-bordered.tab-hoverable(cellpadding='8')
             tbody
               tr.center-heading.tab-color
@@ -30,13 +30,13 @@ block content
                   b Frequence maximum
                 th
                   b Frequence moyenne
-              each user in users 
+              each activity in activites 
                 tr
-                  th=user.Description
-                  th=user.Date
-                  th=user.BegginingTime
-                  th=user.Duration
-                  th=user.Distance
-                  th=user.MinCardio
-                  th=user.MaxCardio
-                  th=user.AverageCardio
+                  th=activity.Description
+                  th=activity.Date
+                  th=activity.BegginingTime
+                  th=activity.Duration
+                  th=activity.Distance
+                  th=activity.MinCardio
+                  th=activity.MaxCardio
+                  th=activity.AverageCardio

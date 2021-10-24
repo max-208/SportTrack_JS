@@ -10,7 +10,11 @@ block content
               | Importer une 
               em activité
             p
-              // erreur ici
+              -if(error != undefined){
+                br
+                p=error
+                br
+              -}
             form(enctype='multipart/form-data' action='' method='POST')
               label(for='userfile') Choisir un fichier à ajouter (format Json): 
               br

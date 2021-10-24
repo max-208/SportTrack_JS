@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
         }
         
         console.log(text);
-        res.render("activities",{users : rows})
+        res.render("activities",{activites : rows})
     });
 });
 

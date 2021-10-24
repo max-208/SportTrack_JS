@@ -1,0 +1,80 @@
+extends layout
+
+block content
+    .left-image-decor
+    section#testimonials.section
+      .container
+        .row
+          .col-lg-8.offset-lg-2
+            .center-heading
+              h2
+                em Editer
+                |  le profil
+              p
+                -if(error != undefined){
+                  br
+                  p=error
+                  br
+                -}
+              form(action='' method='POST')
+                label(for='OldMail') Adresse Email actuelle
+                br
+                input#OldMail(type='email' name='OldMail' pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+' required='')
+                br
+                br
+                label(for='OldPassword') Mot de passe actuel
+                br
+                input#OldPassword(type='password' name='OldPassword' pattern='^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$' required='')
+                br
+                br
+                label(for='Name') Nouveau Nom
+                br
+                input#Name(type='text' name='Name')
+                br
+                br
+                label(for='Surname') Nouveau Prénom
+                br
+                input#Surname(type='text' name='Surname')
+                br
+                br
+                label(for='Date') Nouvelle Date de naissance
+                br
+                input#Date(type='date' name='Date')
+                br
+                br
+                label(for='Sex') Nouveau Genre
+                br
+                input#Male(type='Radio' name='Sex' value='Homme')
+                label(for='Homme') Homme
+                br
+                input#emale(type='Radio' name='Sex' value='Femme')
+                label(for='emme') emme
+                br
+                input#Other(type='Radio' name='Sex' value='Autres' checked='')
+                label(for='Autres') Autres / Ne souhaite pas préciser
+                br
+                br
+                label(for='Height') Nouvelle Taille (cm)
+                br
+                input#Height(type='number' name='Height' min='0'  max='300')
+                br
+                br
+                label(for='Weight') Nouveau Poids (Kg)
+                br
+                input#Weight(type='number' name='Weight' min='0' max='300')
+                br
+                br
+                label(for='Email') Nouvelle Adresse Email
+                br
+                input#Mail(type='email' name='Email' pattern='[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+')
+                br
+                br
+                label(for='Password') Nouveau Mot de passe
+                br
+                |                             (le mot de passe doit contenir au moins 8 caractères, dont au moins 2 majuscules, 1 caractère special (!@#$£€%^&*()\-_+.), 2 nombres et 3 minuscules) 
+                br
+                input#Password(type='password' name='Password' pattern='^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$')
+                br
+                br
+                input(type='submit' value='Valider')
+              p

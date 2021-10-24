@@ -11,7 +11,11 @@ block content
               em Creation
               |  de profil
             p
-              //message erreur
+              -if(error != undefined){
+                br
+                p=error
+                br
+              -}
             form(action='' method='POST')
               label(for='FName') Nom
               br

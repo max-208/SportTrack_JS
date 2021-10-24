@@ -20,10 +20,10 @@ var UserDAO = function(){
             });
         });
     };
-    this.update = function(key, values){
+    this.update = function(values){
         return new Promise(async function(resolve,reject){
-            const querry = "update user set Email = ?, Name = ?, Surname = ?, BirthDate = ?, Gender = ?, Height = ?, Weight = ?, Password = ? where Email = ?";
-            db.all(querry,[values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"], key],(err,rows)=>{
+            const querry = "update user set Email = ?, Name = ?, Surname = ?, BirthDate = ?, Gender = ?, Height = ?, Weight = ?, Password = ? where Email = ? AND Password = ?";
+            db.all(querry,[values["Email"], values["Name"], values["Surname"], values["BirthDate"], values["Gender"], values["Height"], values["Weight"], values["Password"], values["OldEmail"],values["OldPassword"]],(err,rows)=>{
                 if(err)reject(err);
                 resolve(rows)
             });
